@@ -1,19 +1,19 @@
-function [Num , array_of_structures] = RV( path )
+function [face ] = RV( path )
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 %obj=VideoReader(path);
 VidObject = VideoReader(path);
-%Get the Video Resolution
-VidHeight = VidObject.Height;
-VidWidth = VidObject.Width;
-%create the array of Image 
-Out = struct('cdata',zeros(VidHeight,VidWidth,3,'uint8'),'colormap',[]);
-%http://matlabrecipes.com/structures-of-arrays-vs-arrays-of-structures/
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-array_of_structures =  struct('cdata',zeros(45,45,3,'uint8'),'colormap',[]);
-for lp = 1:1
-    array_of_structures(lp) =  struct('cdata',Out,'colormap',[]);
+while hasFrame(VidObject)
+frame = readFrame(VidObject); 
+[T, BB]=FaceDetectionVJ(frame);
+  if T>0
+      for i=0:T
+        I2 = imcrop(frame,BB);
+        figure,imshow(I2)
+      end %end for loop
+      end %end IF
+  k = k+1;
 end
-%%%%%%%%%%%%%%%%%%%
 
 end%end function
+

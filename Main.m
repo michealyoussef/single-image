@@ -3,13 +3,13 @@ newwidth = 45;newheigth = 45;
 
 
 if flag==1%%% when take image from video
-    [,]=RV(inputvideo);
+    [inputlRimage]=RV(inputvideo);
 else %% when take face from image
     inputlRimage=imreadd(inputlRimage);
+end;
     inputlRimage= imresize(inputlRimage,[128 128]);
     % inputlRimage = imresize(inputlRimage, [31 31]);
     inputlRimage = facedetection(inputlRimage);
-end;
 
 [imagedatabase,numberofimage] = ReadingdataBase(path);
 interpolatedimage = interpolation(inputlRimage,newwidth,newheigth);
