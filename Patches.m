@@ -1,11 +1,11 @@
-function [ca] = Patches(image)
+function [ca] = Patches(image,patchsize)
 rgbImage = (image);
 % Get the dimensions of the image.  numberOfColorBands should be = 3.
 [rows, columns, numberOfColorBands] = size(rgbImage);
 %==========================================================================
 % The first way to divide an image up into blocks is by using mat2cell().
-blockSizeR = 16; % Rows in block.
-blockSizeC = 16; % Columns in block.
+blockSizeR = patchsize; % Rows in block.
+blockSizeC = patchsize; % Columns in block.
 % Figure out the size of each block in rows.
 % Most will be blockSizeR but there may be a remainder amount of less than that.
 wholeBlockRows = floor(rows / blockSizeR);

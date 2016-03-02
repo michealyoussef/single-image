@@ -10,8 +10,11 @@ frame = readFrame(VidObject);
       for i=1:T   
           M=BB(i,:);
         I2 = imcrop(frame,M);
+              face=I2;
+
         figure,imshow(I2);
       end %end for loop
+      break;
       end %end IF
 end
 
