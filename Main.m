@@ -43,8 +43,10 @@ for i=1:K-1
     numPlotsC = size(CA, 2);
     plotIndex=1;
     figure;
-    for x=1:numPlotsR
-        for y=1:numPlotsC
+    for x=1:0
+        %numPlotsR
+        for y=1:0
+            %numPlotsC
             %      fprintf('plotindex = %d,   c=%d, r=%d\n', plotIndex, c, r);
             % Specify the location for display of the image.
             subplot(numPlotsR, numPlotsC, plotIndex);
@@ -64,5 +66,7 @@ for i=1:K-1
     end;
 end;
 
+outdict=makedictionary(pactchingimages,K-1,numPlotsR,numPlotsC,patchsize);
+H=0;
 end
 
